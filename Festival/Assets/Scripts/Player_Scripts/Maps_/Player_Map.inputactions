@@ -23,6 +23,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Interact_",
+                    "type": "Button",
+                    "id": "33ef03dc-2abe-4b86-9dff-baf5a56ddd5d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -89,6 +98,65 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run_",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8363b54-756f-4292-bd31-7a2857652e34",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Interact_",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Player_Dialoge",
+            "id": "2e513875-cd35-414b-97e0-a227bb070b1c",
+            "actions": [
+                {
+                    "name": "Exit_Dialogue",
+                    "type": "Button",
+                    "id": "9c8b3e58-4962-4b6e-8e7f-c582e5b7ca46",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Next_Line",
+                    "type": "Button",
+                    "id": "94f531f2-a7e5-41d7-b81c-28ae85e2974b",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d46c7d86-4318-4593-91f4-4f30255c85c1",
+                    "path": "<Keyboard>/ctrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exit_Dialogue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b3ee4b6c-f74b-4974-b242-41dab5cfe702",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Next_Line",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
