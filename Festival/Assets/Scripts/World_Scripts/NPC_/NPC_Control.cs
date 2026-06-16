@@ -9,6 +9,7 @@ public class NPC_Control : MonoBehaviour
 
     [Header("Bool")]
     [SerializeField] public bool can_Talk;
+    [SerializeField] public bool had_Mission;
 
     [Header("Debug_Variables")]
     [SerializeField] public float radius_Wire;
@@ -21,7 +22,10 @@ public class NPC_Control : MonoBehaviour
     [SerializeField] public GameObject canvas_Point;
 
     [Header("Dialogue")]
-    [SerializeField] public Dialoge_SCRIPTABLEOBJ ref_Dialogue;
+    [SerializeField] public Dialoge_SCRIPTABLEOBJ[] ref_Dialogue;
+
+    [Header("Mission")]
+    [SerializeField] public Mission_Base ref_Mission;
 
     public void Start()
     {
@@ -31,6 +35,10 @@ public class NPC_Control : MonoBehaviour
 
         npc_Canvas = GameObject.FindGameObjectWithTag("Text_Canvas").GetComponent<Canvas>();
 
+        if(had_Mission)
+        {
+            ref_Mission = GetComponent<Mission_Base>();
+        }
     }
     public void Update()
     {
@@ -70,12 +78,9 @@ public class NPC_Control : MonoBehaviour
         //Entrar a hablar con el npc
         if (can_Talk && Player_Controller.Player_Instance.player_Input.actionMaps[0].actions[2].WasPerformedThisFrame())
         {
-
             Debug.Log("Hablando con el jugador");
 
             Player_Controller.Player_Instance.change_Status(Player_Controller.playerStatus.status_Dialogue);
-
-            Call_Activate_Mission.call_instance.ref_Mission = gameObject.GetComponentInChildren<Mission_Base>();
 
             Player_Controller.Player_Instance.player_LookNPC = gameObject;
 
@@ -85,9 +90,11 @@ public class NPC_Control : MonoBehaviour
 
             npc_Canvas.gameObject.SetActive(true);
 
-            UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue);
+            UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue[0]);
 
         }
+
+        
 
         //Salir de hablar con el npc
         //if (can_Talk && Player_Controller.Player_Instance.player_Input.actionMaps[1].actions[0].WasPerformedThisFrame())
@@ -113,9 +120,57 @@ public class NPC_Control : MonoBehaviour
     public void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player") && Player_Controller.Player_Instance.GetComponent<Player_Controller>().status_ == Player_Controller.playerStatus.status_Move 
+            && Player_Controller.Player_Instance.player_Input.actionMaps[0].actions[2].WasPerformedThisFrame() && had_Mission)
+        {
+
+            if(Player_Controller.Player_Instance.missionObject_Pocket != ref_Mission.mission_Object && !ref_Mission.mission_Activate)
+            {
+                Call_Activate_Mission.call_instance.set_Mission(gameObject.GetComponent<Mission_Base>());
+
+                UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue[0]);
+
+                npc_Canvas.transform.position = canvas_Point.transform.position;
+
+                Player_Controller.Player_Instance.change_Status(Player_Controller.playerStatus.status_Dialogue);
+
+                Player_Controller.Player_Instance.player_LookNPC = gameObject;
+
+                Player_Controller.Player_Instance.ref_Camera.fieldOfView = 42f;
+            }
+
+            if (Player_Controller.Player_Instance.missionObject_Pocket != ref_Mission.mission_Object && ref_Mission.mission_Activate)
+            {
+                UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue[1]);
+
+                npc_Canvas.transform.position = canvas_Point.transform.position;
+
+                Player_Controller.Player_Instance.change_Status(Player_Controller.playerStatus.status_Dialogue);
+
+                Player_Controller.Player_Instance.player_LookNPC = gameObject;
+
+                Player_Controller.Player_Instance.ref_Camera.fieldOfView = 42f;
+            }
+
+            if(Player_Controller.Player_Instance.missionObject_Pocket == ref_Mission.mission_Object && ref_Mission.mission_Activate)
+            {
+                UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue[2]);
+
+                npc_Canvas.transform.position = canvas_Point.transform.position;
+
+                Player_Controller.Player_Instance.change_Status(Player_Controller.playerStatus.status_Dialogue);
+
+                Player_Controller.Player_Instance.player_LookNPC = gameObject;
+
+                Player_Controller.Player_Instance.ref_Camera.fieldOfView = 42f;
+
+                ref_Mission.on_Finish_Mission();
+            }
+        }
+
+        if(other.CompareTag("Player") && Player_Controller.Player_Instance.GetComponent<Player_Controller>().status_ == Player_Controller.playerStatus.status_Move
             && Player_Controller.Player_Instance.player_Input.actionMaps[0].actions[2].WasPerformedThisFrame())
         {
-            UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue);
+            UI_Dialoge_Manager.instance_Dialogue.on_OpenDialogue(ref_Dialogue[0]);
 
             npc_Canvas.transform.position = canvas_Point.transform.position;
 
@@ -124,24 +179,8 @@ public class NPC_Control : MonoBehaviour
             Player_Controller.Player_Instance.player_LookNPC = gameObject;
 
             Player_Controller.Player_Instance.ref_Camera.fieldOfView = 42f;
-
-
         }
     }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        //Call_Activate_Mission.call_instance.ref_Mission.GetComponentInChildren<Mission_Test>();
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        can_Talk = false;
-
-        //Call_Activate_Mission.call_instance.ref_Mission = null;
-    }
-
-
 
     #endregion
 

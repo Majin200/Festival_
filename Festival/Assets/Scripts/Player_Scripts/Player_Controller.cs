@@ -29,6 +29,9 @@ public class Player_Controller : MonoBehaviour
     [SerializeField] public float max_FOV;
     [SerializeField] public float min_FOV;
 
+    [Header("Player_Pockets")]
+    [SerializeField] public GameObject missionObject_Pocket;
+
 
     float scale_X;
 

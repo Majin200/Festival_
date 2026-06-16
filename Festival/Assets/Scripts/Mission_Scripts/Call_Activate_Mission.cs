@@ -13,7 +13,11 @@ public class Call_Activate_Mission : MonoBehaviour
     }
     public void call_Mission()
     {
-
         ref_Mission.on_Start_Mission();
+    }
+
+    public void set_Mission(Mission_Base ref_)
+    {
+        ref_Mission = ref_;
     }
 }

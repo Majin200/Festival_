@@ -248,13 +248,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Control
   npc_Collider: {fileID: 12599852}
   can_Talk: 0
+  had_Mission: 0
   radius_Wire: 2.3
   direction_X: 0
   dif_Direction: 0
   scale_X: 0
   npc_Canvas: {fileID: 0}
   canvas_Point: {fileID: 287945675}
-  ref_Dialogue: {fileID: 11400000, guid: 457c6ed9ea03acd4f997d179322b0082, type: 2}
+  ref_Dialogue: []
+  ref_Mission: {fileID: 0}
 --- !u!1 &146241074
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,13 +646,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Control
   npc_Collider: {fileID: 337537817}
   can_Talk: 0
+  had_Mission: 0
   radius_Wire: 2.3
   direction_X: 0
   dif_Direction: 0
   scale_X: 0
   npc_Canvas: {fileID: 0}
   canvas_Point: {fileID: 1076986390}
-  ref_Dialogue: {fileID: 0}
+  ref_Dialogue: []
+  ref_Mission: {fileID: 0}
 --- !u!4 &337537820
 Transform:
   m_ObjectHideFlags: 0
@@ -679,6 +683,7 @@ GameObject:
   - component: {fileID: 346029303}
   - component: {fileID: 346029302}
   - component: {fileID: 346029301}
+  - component: {fileID: 346029305}
   m_Layer: 0
   m_Name: NPC_ (1)
   m_TagString: NPC
@@ -780,13 +785,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Control
   npc_Collider: {fileID: 346029301}
   can_Talk: 0
+  had_Mission: 1
   radius_Wire: 2.3
   direction_X: 0
   dif_Direction: 0
   scale_X: 0
   npc_Canvas: {fileID: 0}
   canvas_Point: {fileID: 151847353}
-  ref_Dialogue: {fileID: 11400000, guid: f86ca3382fccacc4fbc530e6b3e69143, type: 2}
+  ref_Dialogue:
+  - {fileID: 11400000, guid: f86ca3382fccacc4fbc530e6b3e69143, type: 2}
+  - {fileID: 11400000, guid: 96d24d669a0004e4ab70563c103b5ddb, type: 2}
+  - {fileID: 11400000, guid: 140d3c28bd1197d428b276b081e1bf13, type: 2}
+  ref_Mission: {fileID: 0}
 --- !u!4 &346029304
 Transform:
   m_ObjectHideFlags: 0
@@ -804,6 +814,23 @@ Transform:
   - {fileID: 151847354}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &346029305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346029300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b96396448068f4fad2cbdc15b366c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mission_Base
+  mission_Name: 
+  mission_Description: 
+  mission_Activate: 0
+  mission_isFinish: 0
+  mission_Object: {fileID: 2106566056}
 --- !u!1 &390844021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1077,7 +1104,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 433552135}
-  - component: {fileID: 433552136}
   m_Layer: 0
   m_Name: Mission_Children
   m_TagString: Untagged
@@ -1100,22 +1126,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 346029304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &433552136
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433552134}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83dd48509e7404b479373fb45a9db9aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mission_Test
-  mission_Name: Objetos perdidos
-  mission_Description: Encuentra el objeto perdido por el mapa
-  mission_Activate: 0
-  mission_isFinish: 0
 --- !u!1 &608841701
 GameObject:
   m_ObjectHideFlags: 0
@@ -1230,6 +1240,7 @@ MonoBehaviour:
   ref_Camera: {fileID: 0}
   max_FOV: 0
   min_FOV: 0
+  missionObject_Pocket: {fileID: 0}
 --- !u!212 &608841706
 SpriteRenderer:
   serializedVersion: 2
@@ -2292,6 +2303,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1235009104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1235009105}
+  m_Layer: 0
+  m_Name: ActiveMissions_MANAGER
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1235009105
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235009104}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.76713, y: -20, z: 26.3628}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1729117005}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1242310022
 GameObject:
   m_ObjectHideFlags: 0
@@ -2756,13 +2798,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Control
   npc_Collider: {fileID: 1493788302}
   can_Talk: 0
+  had_Mission: 0
   radius_Wire: 2.3
   direction_X: 0
   dif_Direction: 0
   scale_X: 0
   npc_Canvas: {fileID: 0}
   canvas_Point: {fileID: 2110238950}
-  ref_Dialogue: {fileID: 0}
+  ref_Dialogue: []
+  ref_Mission: {fileID: 0}
 --- !u!4 &1493788305
 Transform:
   m_ObjectHideFlags: 0
@@ -3029,13 +3073,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPC_Control
   npc_Collider: {fileID: 1694723626}
   can_Talk: 0
+  had_Mission: 0
   radius_Wire: 2.3
   direction_X: 0
   dif_Direction: 0
   scale_X: 0
   npc_Canvas: {fileID: 0}
   canvas_Point: {fileID: 814932255}
-  ref_Dialogue: {fileID: 0}
+  ref_Dialogue: []
+  ref_Mission: {fileID: 0}
 --- !u!4 &1694723629
 Transform:
   m_ObjectHideFlags: 0
@@ -3084,6 +3130,7 @@ Transform:
   - {fileID: 1156932537}
   - {fileID: 2019671339}
   - {fileID: 957590635}
+  - {fileID: 1235009105}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1904925577
@@ -3543,6 +3590,160 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078267708}
   m_CullTransparentMesh: 1
+--- !u!1 &2106566056
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2106566060}
+  - component: {fileID: 2106566059}
+  - component: {fileID: 2106566058}
+  - component: {fileID: 2106566061}
+  - component: {fileID: 2106566062}
+  - component: {fileID: 2106566063}
+  m_Layer: 0
+  m_Name: Sphere
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &2106566058
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0e1ca398dfee6564ba6451314bfef82b, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &2106566059
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &2106566060
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -49.84, y: 0.689, z: 1.16}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &2106566061
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 1.86
+  m_Center: {x: 0, y: 0, z: -1.13}
+--- !u!114 &2106566062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4eb722916e4511949a667a1a3e7d6090, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Test_Mission_Object
+  can_Grab: 0
+--- !u!54 &2106566063
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106566056}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &2110238950
 GameObject:
   m_ObjectHideFlags: 0
@@ -3593,3 +3794,4 @@ SceneRoots:
   - {fileID: 1485233107}
   - {fileID: 1985378221}
   - {fileID: 1729117005}
+  - {fileID: 2106566060}
