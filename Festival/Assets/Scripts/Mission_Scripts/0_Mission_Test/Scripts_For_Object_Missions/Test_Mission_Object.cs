@@ -5,12 +5,28 @@ public class Test_Mission_Object : MonoBehaviour
     [Header("Bools")]
     [SerializeField] public bool can_Grab;
 
+    [Header("References")]
+    [SerializeField] public Mission_Obstacle ref_Obstacle;
+
     public void OnTriggerEnter(Collider other)
     {
         if (other.transform.CompareTag("Player"))
         {
-            can_Grab = true;
+
+            if(ref_Obstacle.npc_On_Alert == false)
+            {
+                can_Grab = true;
+
+            }
+
+            else
+            {
+                can_Grab = false;
+
+            }
         }
+
+        
     }
 
     public void OnTriggerExit(Collider other)
@@ -26,6 +42,11 @@ public class Test_Mission_Object : MonoBehaviour
 
             gameObject.SetActive(false);
 
+        }
+
+        if(!can_Grab && Player_Controller.Player_Instance.player_Input.actionMaps[0].actions[2].WasPerformedThisFrame())
+        {
+            ref_Obstacle.on_Talk();
         }
     }
 }
