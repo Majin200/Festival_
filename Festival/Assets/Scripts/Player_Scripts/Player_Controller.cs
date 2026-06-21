@@ -119,6 +119,7 @@ public class Player_Controller : MonoBehaviour
             {
                 transform.Translate(new Vector3(player_Input.actionMaps[0].actions[0].ReadValue<Vector2>().x * player_Speed * 2 * Time.deltaTime, 0, 0));
                 player_Anim.SetFloat("Walk", 2);
+                player_Anim.SetBool("Run", true);
 
                 if (player_Input.actionMaps[0].actions[0].ReadValue<Vector2>().x < 0)
                 {
@@ -138,6 +139,8 @@ public class Player_Controller : MonoBehaviour
             {
                 transform.Translate(new Vector3(player_Input.actionMaps[0].actions[0].ReadValue<Vector2>().x * player_Speed * Time.deltaTime, 0, 0));
                 player_Anim.SetFloat("Walk", 2);
+                player_Anim.SetBool("Run", false);
+
 
                 if (player_Input.actionMaps[0].actions[0].ReadValue<Vector2>().x < 0)
                 {

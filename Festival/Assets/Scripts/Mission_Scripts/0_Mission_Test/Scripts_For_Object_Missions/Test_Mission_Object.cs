@@ -13,7 +13,7 @@ public class Test_Mission_Object : MonoBehaviour
         if (other.transform.CompareTag("Player"))
         {
 
-            if(ref_Obstacle.npc_On_Alert == false)
+            if(ref_Obstacle.npc_On_Alert == false && (ref_Obstacle.npc_convinced_ || ref_Obstacle.npc_disctracted_))
             {
                 can_Grab = true;
 

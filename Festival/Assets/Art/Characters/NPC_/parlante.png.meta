@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e0738c83607fa5046a04af81e2030ea5
+guid: 96dabafa68befd1459b21a8f97bd30ea
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chino_1_0
+      name: parlante_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 80
-        width: 15
-        height: 57
+        x: 7
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -138,20 +138,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d0cd27aca63a98d47a614200d7b4f5cc
-      internalID: 76755005
+      spriteID: ea4b7f42c0c9f6c4bb7f0483dcfa7181
+      internalID: -1129697832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chino_1_1
+      name: parlante_1
       rect:
         serializedVersion: 2
-        x: 65
-        y: 80
-        width: 15
-        height: 56
+        x: 38
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,20 +160,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fac7d87383c06c741b595c24c53393f1
-      internalID: -603478646
+      spriteID: 26c86d42c61fb1044ba95ff0cd68740f
+      internalID: 292208638
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chino_1_2
+      name: parlante_2
       rect:
         serializedVersion: 2
-        x: 113
-        y: 80
-        width: 15
-        height: 56
+        x: 69
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -182,20 +182,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4de3a6a6ee092c4eacbc2906893c27c
-      internalID: -961706454
+      spriteID: bc30c400da814ba4eb84ec8e6112668b
+      internalID: 1016458338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chino_1_3
+      name: parlante_3
       rect:
         serializedVersion: 2
-        x: 161
-        y: 80
-        width: 15
-        height: 57
+        x: 100
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +204,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8f3e0ee3f4520fa40aab254d3bffc0c5
-      internalID: 1971465340
+      spriteID: 634cc57e35d58054eb7c0e8ce8e3fb96
+      internalID: 311270853
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chino_1_4
+      name: parlante_4
       rect:
         serializedVersion: 2
-        x: 15
-        y: 9
-        width: 19
-        height: 55
+        x: 131
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -226,20 +226,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c39cab5e8635e54d84eef66c2882c76
-      internalID: -465895277
+      spriteID: 4693eb9deb4bcac42baffaf70aea9348
+      internalID: 2031983472
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: chino_1_5
+      name: parlante_5
       rect:
         serializedVersion: 2
-        x: 65
-        y: 9
-        width: 15
-        height: 57
+        x: 162
+        y: 2
+        width: 17
+        height: 31
       alignment: 7
       pivot: {x: 0.5, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -248,52 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7333111452986bf4b83ea5688b5cf643
-      internalID: -1987120831
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chino_1_6
-      rect:
-        serializedVersion: 2
-        x: 110
-        y: 9
-        width: 19
-        height: 55
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4ccbfa1eb98e1cd4493750b6159e181d
-      internalID: 471466650
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chino_1_7
-      rect:
-        serializedVersion: 2
-        x: 154
-        y: 9
-        width: 22
-        height: 57
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9b3534539d45c4d42a24e19a49ea3fde
-      internalID: 1999289154
+      spriteID: 2c5ac59e285117b41bc465c2f6cec970
+      internalID: -2010529830
       vertices: []
       indices: 
       edges: []
@@ -302,7 +258,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: f4fb98d1c5fcacc4abc3a6113ac543b1
+    spriteID: 5549ab0ceb8ad444a99a410e4244c200
     internalID: 0
     vertices: []
     indices: 
@@ -314,14 +270,12 @@ TextureImporter:
       - key: SpriteEditor.SliceSettings
         value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.0},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":7,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      chino_1_0: 76755005
-      chino_1_1: -603478646
-      chino_1_2: -961706454
-      chino_1_3: 1971465340
-      chino_1_4: -465895277
-      chino_1_5: -1987120831
-      chino_1_6: 471466650
-      chino_1_7: 1999289154
+      parlante_0: -1129697832
+      parlante_1: 292208638
+      parlante_2: 1016458338
+      parlante_3: 311270853
+      parlante_4: 2031983472
+      parlante_5: -2010529830
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
